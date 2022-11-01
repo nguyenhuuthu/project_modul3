@@ -123,7 +123,7 @@ html {
 
 .container {
   background: var(--white);
-  max-width: 1200px;
+  max-width: 14400px;
   margin: auto;
   overflow: hidden;
 }
@@ -140,7 +140,7 @@ html {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1200px;
+  max-width: 14400px;
   background: hsla(0, 0%, 100%, 0.9);
   backdrop-filter: blur(15px);
   display:         flex;

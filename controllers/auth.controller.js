@@ -1,7 +1,6 @@
 const db = require("../model/db");
 const bcrypt = require("bcrypt"); // thư viện mã hóa password
-const saltRounds = 10;
-// hello dinh thu
+const saltRounds = 10
 module.exports.getAll = (req, res) => {
   db.execute("SELECT * FROM new_table")
     .then((data) => {
@@ -38,11 +37,8 @@ module.exports.login = (req, res) => {
             message: "Wrong password",
           });
         } else {
-          console.log("Hello");
           // res.cookie("userId", find.id, { signed: true });
           // res.cookie("role", find.role, { signed: true });
-
-          console.log("Hello");
           res.status(200).json({
             status: "success",
             message: "Login successfully",
