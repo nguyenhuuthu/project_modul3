@@ -34,12 +34,15 @@ module.exports.login = (req, res) => {
           message: "Wrong password",
         })
       } else {
-        console.log("Login successfully");
-        // res.cookie("userId", find.id, {signed: true})
-        // res.render("homePage", {
-        //   status : "success",
+        // res.json({
         //   message: "Login successfully",
         // })
+        // console.log("Login successfully");
+        // res.cookie("userId", find.id, {signed: true})
+        res.render("homePage", {
+          status : "success",
+          message: "Login successfully",
+        })
       }
     }
 
@@ -48,6 +51,6 @@ module.exports.login = (req, res) => {
 }
 
 module.exports.register = (req, res) => {
-  
+
 }
 
