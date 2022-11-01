@@ -26,7 +26,7 @@ app.use("/users", userRoutes);
 app.use("/auth", authRoutes);
 
 app.get("/", (req, res) => {
-  res.send("hello world ");
+  res.render("homePage");
 });
 
 app.listen(3000, () => {
