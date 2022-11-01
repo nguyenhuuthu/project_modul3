@@ -1,6 +1,7 @@
 const db = require("../model/db");
 const bcrypt = require("bcrypt"); // thư viện mã hóa password
 const saltRounds = 10;
+// hello dinh thu
 module.exports.getAll = (req, res) => {
   db.execute("SELECT * FROM new_table")
     .then((data) => {
