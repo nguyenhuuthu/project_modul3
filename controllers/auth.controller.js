@@ -11,7 +11,10 @@ module.exports.getAll = (req, res) => {
       console.log(err);
     });
 };
-module.exports.login = (req, res) => {
+module.exports.login = (req,res) =>{
+  res.render("login")
+}
+module.exports.postlogin = (req, res) => {
   // console.log(req.body);
   let { email, password } = req.body;
   if (!email || !password) {
