@@ -52,9 +52,8 @@ module.exports.login = (req, res) => {
 }
 
 module.exports.register = (req, res) => {
-  console.log("hello");
   let { name, email, password } = req.body;
-  console.log(name, email, password);
+  console.log(email, password);
   password = bcrypt.hashSync(password, saltRounds);
   let ID = Math.floor(Math.random() * 1000000)
   console.log(ID);
@@ -65,28 +64,26 @@ module.exports.register = (req, res) => {
       // let findEmail = rows[0]
       // console.log(rows.length);
       if (rows.length > 0) {
-        return res.send("user already exist");
+        return Promise.reject("user already exist");
       } else {
         return db.execute("INSERT INTO user_elearning VALUES (?, ?, ?, ?, ?)", [
           ID,
           name,
           email,
           password,
-          role,
+          null,
         ])
       }
     })
     .then((data) => {
       console.log(data);
       res.status(200).json({
+        status: "success",
         message: "Create one successfully",
       });
     })
     .catch((err) =>
-      res.status(404).json({
-        err: err,
-        // message: "user already exist",
-      })
+      res.status(404).json(err)
     );
 }
 

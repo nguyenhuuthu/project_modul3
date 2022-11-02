@@ -32,28 +32,30 @@ formLogin.addEventListener("submit", function (e) {
   
 })
 
-// formSignin.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     let email = formLogin.loginEmail.value;
-//     let password = formLogin.loginPassword.value;
-//     let data = {
-//         email,
-//         password,
-//         };
-//     fetch(serverUrl + "auth/login", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//           },
-//         body: JSON.stringify(data),
-//     })
-//     .then((res) => res.json())
-//     .then((data) => {
-//         if(data.status === "success"){
-//             window.location.href = "/";
-//           }
-//     })
-//     .catch((err) => console.log(err))
-// })
+formSignin.addEventListener("submit", function (e) {
+    e.preventDefault();
+    let name = formSignin.siginName.value;
+    let email = formSignin.signEmail.value;
+    let password = formSignin.signPassword.value;
+    let data = {
+        name: name,
+        email: email,
+        password: password,
+        };
+    fetch(serverUrl + "auth/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+          },
+        body: JSON.stringify(data),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        if(data.status === "success"){
+            window.location.href = "/";
+          }
+    })
+    .catch((err) => console.log(err))
+})
 
 
