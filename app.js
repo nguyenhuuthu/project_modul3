@@ -5,7 +5,7 @@ const ejs = require("ejs");
 const cors = require("cors");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
-const { requireUser } = require("./middlewares/middlewares");
+// const { requireUser } = require("./middlewares/middlewares");
 //  import router
 let userRoutes = require("./routes/users.routes");
 let authRoutes = require("./routes/auth.routes");
