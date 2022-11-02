@@ -19,7 +19,15 @@ app.use(bodyParser.json()); // json (fetch api)
 app.use(cors()); // fix cross origin error
 app.use(morgan("dev")); // log request on server (for debugging)
 app.use(express.static("public")); // hosting static file
-app.use(cookieParser("secret"));
+app.use(cookieParser("back"));
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.FRONTEND_URL ?? "http://127.0.0.1:3000",
+    optionsSuccessStatus: 200,
+  })
+);
+
 
 // use router
 app.use("/users", userRoutes);
@@ -32,3 +40,4 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
   console.log("server running on http://127.0.0.1:3000");
 });
+
