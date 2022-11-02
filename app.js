@@ -28,6 +28,9 @@ app.use("/auth", authRoutes);
 app.get("/", (req, res) => {
   res.render("homePage");
 });
+app.get("/course", (req, res) => {
+  res.render("course");
+});
 
 app.listen(3000, () => {
   console.log("server running on http://127.0.0.1:3000");
