@@ -368,10 +368,6 @@ html {
   z-index: 5;
 }
 
-
-
-
-
 /*-----------------------------------*\
   #COURSE CATEGORY
 \*-----------------------------------*/
@@ -604,7 +600,7 @@ html {
   border-radius: 50%;
   border: 3px solid var(--white);
   box-shadow: 0 0 20px hsla(0, 0%, 0%, 0.2);
-  width: 20px;
+  width: 30px;
 }
 
 .course-card .author-name {
