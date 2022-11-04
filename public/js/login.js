@@ -52,7 +52,7 @@ formSignin.addEventListener("submit", function (e) {
     .then((res) => res.json())
     .then((data) => {
         if(data.status === "success"){
-            window.location.href = "/";
+            window.location.href = "/auth/login";
           }
     })
     .catch((err) => console.log(err))

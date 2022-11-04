@@ -1,0 +1,53 @@
+
+#container{
+    width: 100%;
+}
+.btn-infor{
+    background-color: rgb(66, 159, 159);
+    /* padding: 3px; */
+    margin-top: 3px;
+}
+table {
+    border: 1px solid;
+}
+td {
+    word-break: break-word;
+}
+.action {
+    width: 130px;
+    text-align: center;
+}
+h2 {
+    margin: 30px 0!important;
+}
+.password {
+    width: 300px;
+}
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(72, 72, 72);
+    color: white;
+    width: 100px;
+}
+input:focus {
+    outline: none;
+}
+/* thiết lập style cho thẻ a */
+.paginationBlogs a{
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    /* transition: background-color .3s; */
+  }
+ /* thiết lập style cho class active */
+  .paginationBlogs a.active {
+    background-color: rgb(13, 59, 105);
+    color: rgb(233, 26, 47);
+  }
+ /* thêm màu nền khi người dùng hover vào class không active */
+  /* .pagination a:hover:not(.active) {
+    background-color: blue;
+  } */
+ 

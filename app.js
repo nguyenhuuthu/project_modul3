@@ -5,10 +5,13 @@ const ejs = require("ejs");
 const cors = require("cors");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
-const { requireUser } = require("./middlewares/middlewares");
+const { requireAuth, notRequireAuth, requireAdmin} = require("./middlewares/middlewares");
 //  import router
 let userRoutes = require("./routes/users.routes");
 let authRoutes = require("./routes/auth.routes");
+let courseRoutes = require("./routes/course.routes");
+
+
 // view engine
 app.set("view engine", "ejs");
 app.set("views", `${__dirname}/views`);
@@ -32,6 +35,7 @@ app.use(
 // use router
 app.use("/users", userRoutes);
 app.use("/auth", authRoutes);
+app.use("/course", courseRoutes)
 
 app.get("/", (req, res) => {
   res.render("homePage");

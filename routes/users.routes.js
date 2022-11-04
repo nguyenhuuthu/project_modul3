@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/users.controller");
-// users
-router.get("/", userController.getUsers);
+const {requireAdmin} = require("../middlewares/middlewares")
 
-//
+router.get("/", userController.getAll);
+
 router.get("/:id", userController.getOne);
-// // post one by ID
-router.post("/", userController.getPost);
+
+router.post("/:id", userController.getPost);
 
 router.put("/:id", userController.getPut);
 
