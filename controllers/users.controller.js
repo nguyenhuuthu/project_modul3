@@ -4,15 +4,13 @@ const saltRounds = 10;
 
 let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 
+
 module.exports.getAll = (req, res) => {
   let { page_size, page_index } = req.query;
-  console.log(page_size, page_index);
-  // check neu k ton tai thi tra ve page size ban ghi dau tien
-  page_index = Number(page_index || 1); //neu ton tai no la chinh no, neu k ton tai thi bang 1 (page_index = page_index ? page_index : 1)
+  page_index = Number(page_index || 1); 
   page_size = Number(page_size || 5);
   let total = 0;
   db.execute(`SELECT * FROM user_elearning`)
-  
       .then((data) => {
           let [rows, cols] = data;
           total = rows.length
@@ -37,15 +35,27 @@ module.exports.getAll = (req, res) => {
 
 module.exports.getOne = (req, res) => {
   let id = req.params.ID
-  db.execute("SELECT * FROM user_elearning WHERE id = ?", [id])
+  db.execute("SELECT * FROM user_elearning WHERE ID = ?", [id])
       .then((data) => {
           let [rows] = data;
-          res.status(200).json({
-              data: rows[0],
+          res.render("homePage",{
+              data: rows,
           });
       })
       .catch((err) => console.log(err));
 };
+
+// module.exports.renderHomePage=(req,res)=>{
+//   let id =req.signedCookies.user_id
+//   db.execute("SELECT * FROM user_elearning WHERE ID= ?", [id])
+//     .then((data) => {
+//       let[rows]=data
+//       console.log(rows);
+//       res.render("homePage",{
+//           data:rows
+//     })
+//   })
+// }
 
 module.exports.getPost = (req, res) => {
   let { name, email, password } = req.body;
@@ -95,7 +105,7 @@ module.exports.getPost = (req, res) => {
 module.exports.getPut = (req, res) => {
   let { id } = req.params;
   let { name, email, password} = req.body;
-  db.execute("UPDATE user_elearning SET name=?  WHERE id = ?",
+  db.execute("UPDATE user_elearning SET name=?  WHERE ID = ?",
       [
           name,
           null,
@@ -114,7 +124,7 @@ module.exports.getPut = (req, res) => {
 
 module.exports.getDelete = (req, res) => {
   let { id } = req.params;
-  db.execute("DELETE FROM user_elearning WHERE id = ?", [id])
+  db.execute("DELETE FROM user_elearning WHERE ID = ?", [id])
       .then((data) => {
           console.log(data);
           res.status(200).json({

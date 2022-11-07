@@ -5,14 +5,17 @@ const saltRounds = 10;
 
 let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 
+
+
 module.exports.userLogin = (req, res) => {
   res.render("login")
 }
 
 module.exports.login = (req, res) => {
+  // let id =req.signedCookies.user_id
   let { email, password } = req.body;
   console.log(email, password);
-  db.execute("SELECT * FROM user_elearning WHERE email=?", [email])
+  db.execute("SELECT * FROM user_elearning WHERE email=? ", [email])
     .then((data) => {
       let [rows] = data;
       let findEmail = rows[0]
@@ -27,10 +30,9 @@ module.exports.login = (req, res) => {
             message: "Wrong password",
           })
         } else {
-          console.log(findEmail)
-          console.log("Hello world")
           res.cookie("user_id", findEmail.ID, { signed: true })
-          res.json({
+          res.cookie("user", findEmail.user_id, { signed: true })
+          res.status(200).json({
             status: "success",
             message: "Login successfully",
           })
@@ -39,8 +41,20 @@ module.exports.login = (req, res) => {
     })
 }
 
-module.exports.register = (req, res) => {
+// module.exports.renderHomePage=(req,res)=>{
+//   let id =req.signedCookies.user_id
+//   db.execute("SELECT * FROM user_elearning WHERE ID= ?", [id])
+//     .then((data) => {
+//       let[rows]=data
+//       console.log(rows);
+//       res.render("homePage",{
+//           data:rows
+//     })
   
+//   })
+// }
+module.exports.register = (req, res) => {
+  res.render("login")
 }
 
 

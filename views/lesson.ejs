@@ -17,18 +17,33 @@
     <div class="container-boss">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../public/assets/1260808643e985b7dcf8.jpg" alt="Logo" width="200" height="50"
+                <img src="/images/RIKKEI_ACADEMY_LOGO.e997e6f7.png" alt="Logo" width="200" height="50"
                     class="d-inline-block align-text-top">
             </a>
             <ul class="aria-course">
-                <li class="navbar-list">Trang chủ</li>
-                <li class="navbar-list"> Khoá học</li>
-                <li class="navbar-list">Lộ trình</li>
+                <li class="navbar-list">
+                    <a href="http://127.0.0.1:3000/">Trang chủ</a>
+                    </li>
+                <li class="navbar-list">
+                    <a href="http://127.0.0.1:3000/course">Khoá học</a>
+                    </li>
+                <li class="navbar-list">
+                    <a href="http://127.0.0.1:3000/lesson">Lộ trình</a>
+                    </li>
             </ul>
         </div>
         <div class="firt-content">
+            <% for(let i = 0; i < data.length; ) %> 
             <div class="upload" id="upload">
-                <video src="${}" class="video"></video>
+                <ul class="video-list">
+                    <li><video class="video"  autoplay>
+                        <source src="<%=  %> " type="">
+                        <!-- <source src="https://player.vimeo.com/progressive_redirect/playback/723688128/rendition/540p/file.mp4?loc=external&oauth2_token_id=57447761&signature=fc6c75b0da793efb1a97c087aee465ac7d9d83604d41f7b1e9348c13d487906c" type="video/mp4"> -->
+                        <!-- <source src="movie.ogg" type="video/ogg"> -->
+                      Your browser does not support the video tag.
+                      </video></li>
+                </ul>
+
             </div>
             <div class="session-list">
                 <ul class="session-item">

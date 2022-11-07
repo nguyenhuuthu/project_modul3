@@ -524,3 +524,8 @@ footer { background: var(--oxford-blue); }
 }
 
 .copyright a:hover { color: var(--ultramarine-blue); }
+
+.pagination {
+  display: flex;
+  justify-content: space-around;
+}

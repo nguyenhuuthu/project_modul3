@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/users.controller");
+
 const {requireAdmin} = require("../middlewares/middlewares")
 
-router.get("/", userController.getAll);
+router.get("/", userController.getAll); // user admin
 
-router.get("/:id", userController.getOne);
+router.get("/:id", userController.getOne);// user
 
 router.post("/:id", userController.getPost);
 

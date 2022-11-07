@@ -1,16 +1,19 @@
 const express =require("express")
+const router = express.Router();
 const cousreController = require("../controllers/cousre.controller")
-const router = express.Router()
+// const userController = require("../controllers/users.controller")
 
 router.get("/", cousreController.course)
 
-// router.get("/:id", cousreController.userCourse)
+// router.get("/homepage",cousreController.renderHomePage)
 
-// router.post("/:id", cousreController.createCourse)
+router.get("/:id", cousreController.userCourse)
 
-// router.put("/:id", cousreController.updateCourse)
+router.post("/:id", cousreController.postCourse)
 
-// router.delete("/", cousreController.deleteCourse)
+router.put("/:id", cousreController.putCourse)
+
+router.delete("/:id", cousreController.deleteCourse)
 
 
 module.exports = router

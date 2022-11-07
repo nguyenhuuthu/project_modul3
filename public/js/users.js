@@ -143,15 +143,34 @@ tbody.addEventListener("click", (e) => {
     }
   });
 
-window.onload = function (){
+window.onload = function () {
+    // Get query
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
+  
+    // Get active page
     let pages = document.getElementsByClassName("page-item");
     let activePage = params.page_index;
-    pages = Array.from(pages)
-        pages.pop();
-        pages.shift();
-        pages[activePage-1].classList.add("active");
-        console.log(pages[activePage-1].classList.add("active"));
-    
-}
+  
+    // Add active class to current page
+    pages = Array.from(pages);
+    let pre = pages[0];
+    let next = pages[pages.length - 1];
+    pages.pop();
+    pages.shift();
+    let last = pages.length;
+    pages[activePage - 1].classList.add("active");
+  
+    pre.addEventListener("click", () => {
+      activePage = activePage - 1;
+      if (activePage === 0) activePage = 1;
+      window.location.href = `/users?page_size=5&page_index=${activePage}`;
+    });
+  
+    next.addEventListener("click", () => {
+      activePage = Number(activePage) + 1;
+      console.log(activePage, last);
+      if (activePage === last) activePage = last;
+      window.location.href = `/users?page_size=5&page_index=${activePage}`;
+    });
+  };
