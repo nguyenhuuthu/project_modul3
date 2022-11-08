@@ -180,6 +180,9 @@ padding-left: 10%;
     border-radius: 5px;
     margin-bottom: 5%;
 }
+.teacher-icon img{
+    border-radius: 40%;
+}
 .remore-teacher{
     display: flex;
     padding-left:3%;
@@ -196,9 +199,13 @@ padding-left: 10%;
     font-size: 18px;
     padding-left: 5%;
 }
+
 .title-teacher::content{
    padding-bottom: 5%;
 }
 .off{
     display: none;
+}
+.img img{
+    width: 100%;
 }

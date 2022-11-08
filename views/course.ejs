@@ -51,7 +51,7 @@
         </ul>
 
         <button class="btn btn-primary">
-          <p class="btn-text">Sign in</p>
+          <p class="btn-text"><%= data[0].name %> </p>
           <span class="square"></span>
         </button>
 
@@ -74,17 +74,18 @@
         <div class="course-card">
           
           <div class="course-banner">
-            <img src="/images/z3780032180705_19c2ffc10630c3dadf329950d142a76f.jpg" alt="course banner" />
+            <!-- <img src="/images/z3780032180705_19c2ffc10630c3dadf329950d142a76f.jpg" alt="course banner" /> -->
+            <img src="/images/<%= data[i].img %> " alt="course banner" />
 
             <div class="course-tag-box" id="course-box">
-              <a href="" class="badge-tag orange">Đăng kí khoá học</a>
+              <a href="http://127.0.0.1:3000/userCourse" class="badge-tag orange">Đăng kí khoá học</a>
               <!-- <a href="#" class="badge-tag blue">Marketing</a> -->
             </div>
           </div>
 
           <div class="course-content">
             <h3 class="card-title">
-              <a href="#"><%= data[i].cousre %> </a>
+              <a href="http://127.0.0.1:3000/userCourse"><%= data[i].cousre %> </a>
             </h3>
 
             <div class="wrapper border-bottom">
@@ -101,7 +102,7 @@
             </div>
 
             <div class="wrapper">
-              <div class="course-price">$50.00</div>
+              <div class="course-price">$<%= data[i].money %> </div>
 
               <div class="enrolled">
                 <div class="icon-user">
@@ -240,6 +241,7 @@
   <script src="/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

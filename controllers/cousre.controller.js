@@ -2,6 +2,7 @@ const db = require("../model/db")
 const bcrypt = require('bcrypt');
 const _ = require("lodash")
 const { promiseImpl } = require("ejs");
+
 const saltRounds = 10;
 let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 
@@ -31,6 +32,20 @@ module.exports.course = (req, res) => {
             });
         })
         .catch((err) => console.log(err)); 
+    
+    }
+
+module.exports.renderHomePage=(req,res)=>{
+    let id =req.signedCookies.user_id
+    console.log(id);
+    db.execute("SELECT * FROM user_elearning WHERE ID= ?", [id])
+      .then((data) => {
+        let[rows]=data
+        console.log(data);
+    res.render("course",{
+        data:data,
+  })    
+})
 }
 
 module.exports.userCourse = (req, res) => {

@@ -14,11 +14,12 @@ let authRoutes = require("./routes/auth.routes");
 let courseRoutes = require("./routes/course.routes");
 let lessonRoutes = require("./routes/lesson.routes")
 let homePageRoutes=require("./routes/homePage.routes")
+let userCourseRoutes = require("./routes/userCourse.routes")
 
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/assets')
+    cb(null, 'public/images')
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9) + ".jpg"
@@ -61,7 +62,8 @@ app.use("/users", userRoutes);
 app.use("/auth", authRoutes);
 app.use("/course", courseRoutes)
 app.use("/lesson", lessonRoutes)
-app.use("/homePage", requireAuth,homePageRoutes)
+app.use("/homePage", requireAuth, homePageRoutes)
+app.use("/userCourse",userCourseRoutes)
 
 
 app.get("/", (req, res) => {

@@ -1,8 +1,6 @@
 const db = require("../model/db");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-
-
 let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 
 
